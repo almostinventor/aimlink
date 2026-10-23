@@ -1,0 +1,51 @@
+# --- Unity generated ---
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Uu]ser[Ss]ettings/
+/[Mm]emoryCaptures/
+/[Rr]ecordings/
+/.utmp/
+sysinfo.txt
+crashlytics-build.properties
+
+# --- IDE ---
+.vs/
+.vscode/
+.idea/
+*.csproj
+*.sln
+*.slnx
+*.suo
+*.user
+*.userprefs
+*.pidb
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+.vsconfig
+
+# --- Build outputs ---
+*.apk
+*.aab
+*.unitypackage
+
+# --- Signing keys: never commit ---
+*.keystore
+*.jks
+*.p12
+
+# --- Not part of the open-source project ---
+# Local assistant notes
+/CLAUDE.md
+/.claude/
+# The boot riser sound is under the Pixabay Content License, which does not allow redistributing
+# the file on its own. See README "Boot sound".
+/SFX/
+/Assets/AimLink/Audio/boot_powerup_riser.mp3
+/Assets/AimLink/Audio/boot_powerup_riser.mp3.meta

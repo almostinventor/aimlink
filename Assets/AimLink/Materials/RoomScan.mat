@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: RoomScan
+  m_Shader: {fileID: 4800000, guid: a12746c39508c3047b743d817b05c0e0, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Ints: []
+    m_Floats:
+    - _BaseGlow: 0
+    - _EdgeGlow: 0.05
+    - _FadeTime: 1.5
+    - _FresnelPower: 3
+    - _GridSpacing: 0.1
+    - _Intensity: 1
+    - _LineWidth: 1.2
+    - _RevealIntensity: 0.5
+    - _RevealRadius: 0.4
+    - _ScanRadius: -1
+    - _ScanSpeed: 3
+    - _ScanWidth: 0.35
+    - _TrailIntensity: 0.6
+    m_Colors:
+    - _GridColor: {r: 0.15, g: 0.85, b: 1, a: 1}
+    - _WaveColor: {r: 0.8, g: 1, b: 1, a: 1}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1

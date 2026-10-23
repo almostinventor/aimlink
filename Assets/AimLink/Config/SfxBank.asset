@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7885108999a151e4a959c0bc2bacbc0e, type: 3}
+  m_Name: SfxBank
+  m_EditorClassIdentifier: Assembly-CSharp::AimLink.SfxBank
+  bootPowerup: {fileID: 8300000, guid: e40fde4fc6a07eb43847409457202402, type: 3}
+  bootHumLoop: {fileID: 8300000, guid: 4e02bf71ee43c3a478c92ce67cc1d65d, type: 3}
+  postTick: {fileID: 8300000, guid: e320664327d8a0244aee9de119018371, type: 3}
+  linkConfirm: {fileID: 8300000, guid: adc3ea252d369b44c9861a5ac2812c14, type: 3}
+  visorOpen: {fileID: 8300000, guid: 15a1a89bce85c1f41b86710c282ed4f0, type: 3}
+  scanSweep: {fileID: 8300000, guid: 28de5a7d0aed7a345a0faad977fc0715, type: 3}
+  labelPop: {fileID: 8300000, guid: d082c3f8f751a8f4ca69503fa09de0f9, type: 3}
+  hudElementIn: {fileID: 8300000, guid: 191b9a60b1b7c7b4cbe991b727d3ed1d, type: 3}
+  reticleLock: {fileID: 8300000, guid: f999c76f6b302094f91579b904f628b1, type: 3}
+  trimTick: {fileID: 8300000, guid: 8e1d944ca3876d441a99301a91329625, type: 3}
+  trimReset: {fileID: 8300000, guid: 21b8016b9ad1a8249909570dca562c4b, type: 3}
+  yPress: {fileID: 8300000, guid: 52de8fa563e6d854bbcd636016891cda, type: 3}
+  beaconPlace: {fileID: 8300000, guid: cc8c2d372b05533438b18034c21f2cd5, type: 3}
+  toggle: {fileID: 8300000, guid: 4b7762f9b3f7f39488adacad17c0987c, type: 3}
+  voiceWeaponLinked: {fileID: 0}
+  voiceEnvironmentMapped: {fileID: 0}
+  voiceSmartLinkActive: {fileID: 0}

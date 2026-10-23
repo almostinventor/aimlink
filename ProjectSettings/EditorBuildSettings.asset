@@ -1,0 +1,13 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/AimLink/Scenes/AimLink.unity
+    guid: b8165d9c033f83b4d81050287c1a328a
+  m_configObjects:
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: f2bc76c0730a1d34fa7bbf7a1ad0cf31, type: 2}
+    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: ad60bc33bd558db46aa23b5d6ce8eb5e, type: 2}
