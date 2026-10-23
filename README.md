@@ -2,6 +2,8 @@
 
 A mixed-reality smart-link reticle for **Meta Quest 3 / 3S**. Tape two Touch Plus controllers to a straight pipe (or an empty, non-firing prop), and AIMLINK draws a world-locked reticle in passthrough exactly where it is pointing, on your real walls and furniture. You can aim from the hip without bringing it up to your eye.
 
+**Install:** [AIMLINK on SideQuest](https://sidequestvr.com/app/63606/aimlink) · or download the APK from [Releases](https://github.com/almostinventor/aimlink/releases). Found a problem? [Open an issue](https://github.com/almostinventor/aimlink/issues).
+
 > **This project is entirely AI-generated.** All code, shaders, editor tooling, scripts and the synthesized sound effects in this repository were written by **Claude** (Anthropic's AI model) using **Claude Code**. A human directed the project and tested it on a headset, but did not hand-write the code. Review it accordingly before relying on it.
 
 AIMLINK is a visual demo and toy. It has no firing, targets or game modes. **It is not made for, and must not be used with, loaded or working airsoft guns, gel blasters or any real weapon.** See [Safety](#safety).
@@ -59,7 +61,9 @@ The app has **no internet permission**, so nothing (room data, camera images or 
 
 ## Installing the APK
 
-Enable developer mode on the headset, then sideload `AimLink.apk` with SideQuest or `adb install AimLink.apk`. It appears under **Unknown Sources** in the app library. Allow both permissions on first launch.
+The easiest way is **[AIMLINK on SideQuest](https://sidequestvr.com/app/63606/aimlink)**.
+
+To install manually, enable developer mode on the headset, download `AimLink.apk` from [Releases](https://github.com/almostinventor/aimlink/releases) and sideload it with SideQuest or `adb install AimLink.apk`. It appears under **Unknown Sources** in the app library. Allow both permissions on first launch.
 
 ## Building from source
 
