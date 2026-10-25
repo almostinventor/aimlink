@@ -58,6 +58,7 @@ namespace AimLink.EditorTools
             Material reticleMat = GetOrCreateMaterial("Reticle", "AimLink/Reticle");
             Material visorMat = GetOrCreateMaterial("VisorMask", "AimLink/VisorMask");
             Material beaconMat = GetOrCreateMaterial("Beacon", "AimLink/Beacon");
+            Material hologramMat = GetOrCreateMaterial("Hologram", "AimLink/Hologram");
             SfxBank bank = GetOrCreateSfxBank();
 
             var scene = EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
@@ -124,6 +125,7 @@ namespace AimLink.EditorTools
             var boot = root.AddComponent<BootSequence>();
             var beacons = root.AddComponent<BeaconManager>();
             var scope = root.AddComponent<ScopeController>();
+            var minimap = new GameObject("Minimap").AddComponent<MinimapController>();
 
             // forward RGB camera for the scope inset; ScopeController switches it on and off
             var cameraGo = new GameObject("PassthroughCamera");
@@ -181,6 +183,18 @@ namespace AimLink.EditorTools
             Set(scope, "input", input);
             Set(scope, "stateMachine", fsm);
             Set(scope, "sfx", sfx);
+
+            Set(minimap, "hud", hud);
+            Set(minimap, "head", centerEye);
+            Set(minimap, "aim", aim);
+            Set(minimap, "muzzle", muzzle);
+            Set(minimap, "beacons", beacons);
+            Set(minimap, "room", room);
+            Set(minimap, "input", input);
+            Set(minimap, "stateMachine", fsm);
+            Set(minimap, "sfx", sfx);
+            Set(minimap, "hologramMaterial", hologramMat);
+            Set(minimap, "ringMaterial", reticleMat);
 
             Set(beacons, "aim", aim);
             Set(beacons, "head", centerEye);

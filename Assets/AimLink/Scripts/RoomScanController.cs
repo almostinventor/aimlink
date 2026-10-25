@@ -69,6 +69,10 @@ namespace AimLink
         public float ScanDuration => scanDuration;
         /// <summary>Colliders of the global mesh, for AimRaycaster (MRUK's own raycast ignores the global mesh).</summary>
         public IReadOnlyList<Collider> MeshColliders => _colliders;
+        /// <summary>The room surfaces as drawn (global mesh, or planes and volumes), for the minimap.</summary>
+        public IReadOnlyList<MeshFilter> SurfaceFilters => _filters;
+        /// <summary>World height of the floor, if the room has one.</summary>
+        public float? FloorHeight { get; private set; }
 
         /// <summary>True while the whole room's geometry grid is shown (toggled with X).</summary>
         public bool GeometryVisible { get; private set; }
@@ -76,11 +80,13 @@ namespace AimLink
         public event Action<bool> GeometryToggled;
         public event Action<int> SurfaceMapped;
         public event Action RoomStateChanged;
+        public event Action SurfacesBuilt;
 
         struct LabelTarget { public MRUKAnchor Anchor; public string Name; }
 
         readonly List<Collider> _colliders = new List<Collider>();
         readonly List<Renderer> _renderers = new List<Renderer>();
+        readonly List<MeshFilter> _filters = new List<MeshFilter>();
         readonly List<GameObject> _built = new List<GameObject>();
         readonly List<LabelTarget> _labels = new List<LabelTarget>();
         readonly List<SceneLabelTag> _tagPool = new List<SceneLabelTag>();
@@ -152,6 +158,8 @@ namespace AimLink
             _built.Clear();
             _renderers.Clear();
             _colliders.Clear();
+            _filters.Clear();
+            FloorHeight = room.FloorAnchor != null ? room.FloorAnchor.transform.position.y : (float?)null;
             _labels.Clear();
 
             bool hasGlobalMesh = false;
@@ -183,13 +191,16 @@ namespace AimLink
                     AddSurface(anchor.transform, "ScanPlane", QuadMesh(anchor.PlaneRect.Value));
             }
             ApplyVisibility();
+            SurfacesBuilt?.Invoke();
         }
 
         GameObject AddSurface(Transform parent, string name, Mesh mesh)
         {
             var go = new GameObject(name);
             go.transform.SetParent(parent, false);
-            go.AddComponent<MeshFilter>().sharedMesh = mesh;
+            var filter = go.AddComponent<MeshFilter>();
+            filter.sharedMesh = mesh;
+            _filters.Add(filter);
             var r = go.AddComponent<MeshRenderer>();
             r.sharedMaterial = _material;
             r.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;

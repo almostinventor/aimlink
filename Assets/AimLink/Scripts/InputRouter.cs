@@ -32,6 +32,8 @@ namespace AimLink
         public event Action XPressed;
         /// <summary>A on the right (handle) controller: toggle the scope inset.</summary>
         public event Action RightAPressed;
+        /// <summary>B on the right (handle) controller: toggle the minimap.</summary>
+        public event Action RightBPressed;
         /// <summary>Left index trigger: place a beacon.</summary>
         public event Action LeftTriggerPressed;
         /// <summary>Left grip: clear all beacons.</summary>
@@ -70,6 +72,7 @@ namespace AimLink
             UpdateY();
             if (OVRInput.GetDown(OVRInput.RawButton.X)) XPressed?.Invoke();
             if (OVRInput.GetDown(OVRInput.RawButton.A)) RightAPressed?.Invoke();
+            if (OVRInput.GetDown(OVRInput.RawButton.B)) RightBPressed?.Invoke();
             if (OVRInput.GetDown(OVRInput.RawButton.LIndexTrigger)) LeftTriggerPressed?.Invoke();
             if (OVRInput.GetDown(OVRInput.RawButton.LHandTrigger)) LeftGripPressed?.Invoke();
             if (TrimEnabled)

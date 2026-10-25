@@ -49,6 +49,13 @@ namespace AimLink
 
         public int Count => _beacons.Count;
 
+        /// <summary>Fills <paramref name="points"/> with the world positions of the placed beacons.</summary>
+        public void GetPoints(List<Vector3> points)
+        {
+            points.Clear();
+            foreach (Beacon b in _beacons) points.Add(b.Point);
+        }
+
         /// <summary>Short message for the HUD message line.</summary>
         public event System.Action<string> Notice;
 

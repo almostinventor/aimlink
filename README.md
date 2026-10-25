@@ -18,6 +18,7 @@ AIMLINK is a visual demo and toy. It has no firing, targets or game modes. **It 
 - **Minimal HUD.** A compass ribbon and a message line that only shows something when it matters (tracking loss, trim changes, toggles).
 - **Beacons.** Drop numbered markers on real surfaces.
 - **Scope.** A magnified inset of the forward camera, centred on the aim point.
+- **3D minimap.** A small hologram of your scanned room in the lower left, heading-up and centred on you, showing the aim line, the point it hits and your markers.
 - **Trim.** Fine-tune the aim angle with the thumbstick; saved between sessions.
 
 ## Hardware setup
@@ -51,6 +52,7 @@ AIMLINK is a visual demo and toy. It has no firing, targets or game modes. **It 
 | **Left trigger** | Place a beacon at the aim point |
 | **Left grip** | Clear all beacons |
 | **A** (right controller) | Scope inset on / off |
+| **B** (right controller) | Minimap on / off |
 
 ## Permissions
 
@@ -116,8 +118,8 @@ To use it, download it from Pixabay, save it as `Assets/AimLink/Audio/boot_power
 
 ```
 Assets/AimLink/
-  Scripts/    runtime: state machine, input, aim, reticle, scan, boot, HUD, beacons, scope
-  Shaders/    room scan, reticle, beacon, visor mask
+  Scripts/    runtime: state machine, input, aim, reticle, scan, boot, HUD, beacons, scope, minimap
+  Shaders/    room scan, reticle, beacon, visor mask, minimap hologram
   Editor/     project setup, scene generator, build, preview
   Audio/      sound effects
   Fonts/      Share Tech Mono, Rajdhani (SIL Open Font License)

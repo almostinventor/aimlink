@@ -57,6 +57,34 @@ namespace AimLink.EditorTools
             hud.Notify("MARK 01 PLACED");
             typeof(HudController).GetMethod("LateUpdate", priv).Invoke(hud, null);
 
+            // ---- minimap over a made-up room (floor 1.6 m below the eyes) ----
+            var map = new GameObject("Minimap").AddComponent<MinimapController>();
+            var mapSo = new SerializedObject(map);
+            mapSo.FindProperty("hud").objectReferenceValue = hud;
+            mapSo.FindProperty("head").objectReferenceValue = camGo.transform;
+            mapSo.FindProperty("hologramMaterial").objectReferenceValue = AssetDatabase.LoadAssetAtPath<Material>("Assets/AimLink/Materials/Hologram.mat");
+            mapSo.FindProperty("ringMaterial").objectReferenceValue = AssetDatabase.LoadAssetAtPath<Material>("Assets/AimLink/Materials/Reticle.mat");
+            mapSo.ApplyModifiedPropertiesWithoutUndo();
+            typeof(MinimapController).GetMethod("Awake", priv).Invoke(map, null);
+            var cubeGo = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            Mesh cube = cubeGo.GetComponent<MeshFilter>().sharedMesh;
+            Object.DestroyImmediate(cubeGo);
+            const float floor = -1.6f;
+            var boxes = new[]
+            {
+                Matrix4x4.TRS(new Vector3(0f, floor, 1f), Quaternion.identity, new Vector3(5f, 0.02f, 5f)),           // floor
+                Matrix4x4.TRS(new Vector3(0f, floor + 1.25f, 3.5f), Quaternion.identity, new Vector3(5f, 2.5f, 0.05f)), // far wall
+                Matrix4x4.TRS(new Vector3(0f, floor + 1.25f, -1.5f), Quaternion.identity, new Vector3(5f, 2.5f, 0.05f)),// back wall
+                Matrix4x4.TRS(new Vector3(-2.5f, floor + 1.25f, 1f), Quaternion.identity, new Vector3(0.05f, 2.5f, 5f)),// left wall
+                Matrix4x4.TRS(new Vector3(2.5f, floor + 1.25f, 1f), Quaternion.identity, new Vector3(0.05f, 2.5f, 5f)), // right wall
+                Matrix4x4.TRS(new Vector3(1f, floor + 0.37f, 1.5f), Quaternion.identity, new Vector3(1.2f, 0.74f, 0.7f)),// table
+                Matrix4x4.TRS(new Vector3(-1.5f, floor + 0.4f, 2.6f), Quaternion.identity, new Vector3(2f, 0.8f, 0.9f)), // couch
+            };
+            var cubes = new Mesh[boxes.Length];
+            for (int i = 0; i < cubes.Length; i++) cubes[i] = cube;
+            map.ShowSurfaces(cubes, boxes);
+            typeof(MinimapController).GetMethod("LateUpdate", priv).Invoke(map, null);
+
             // ---- reticle + beacon parts ----
             Mesh quad = Quad();
             Material reticle = AssetDatabase.LoadAssetAtPath<Material>("Assets/AimLink/Materials/Reticle.mat");
